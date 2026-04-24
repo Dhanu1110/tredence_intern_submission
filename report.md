@@ -28,7 +28,7 @@ Below is the summary of the model trade-offs observed over multiple magnitude ex
 
 Below is the distribution of the final gate values for the best performing model. As hypothesized for a successful model, there is **a massive spike at 0** denoting the pruned connections, and a d[...]
 
-![Gate Histogram](https://github.com/Dhanu1110/tredence_intern_submission/raw/main/gate_histogram.png)
+![Gate Histogram](https://github.com/Dhanu1110/tredence_intern_submission/blob/main/outputs/plots/gate_histogram.png)
 
 ## 4. Conclusion
 
