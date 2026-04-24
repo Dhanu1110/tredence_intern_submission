@@ -1,10 +1,10 @@
-# 🧠 Self-Pruning Neural Network Submission
+# Self-Pruning Neural Network Submission
 
 ## 1. Why an L1 penalty on the sigmoid gates encourages sparsity
 
 In our architecture, the effective connection weight is determined by element-wise multiplication: $W \\times \\sigma(G)$. The gating value outputted by the sigmoid $(\\sigma)$ function is bounded strictly between 0 and 1. 
 
-By adding an L1 penalty specifically on these sigmoid outputs—computed as $\\lambda \\sum \\sigma(G)$—to our total Cross-Entropy objective function, we actively penalize the network for keeping connections \"open\" (where $\\sigma(G) \\approx 1$). During backpropagation, in order to minimize this overall loss, the optimizer is constantly coerced to decay the internal Gate Scores $(G)$ toward large negative values. As $G \\rightarrow -\\infty$, the sigmoid activation $\\sigma(G)$ approaches exactly 0, effectively severing the connection in the forward pass. This creates extreme structural sparsity.
+By adding an L1 penalty specifically on these sigmoid outputs—computed as $\\lambda \\sum \\sigma(G)$—to our total Cross-Entropy objective function, we actively penalize the network for keeping connections \"open\" (where $\\sigma(G) \\approx 1$). During backpropagation, in order to minimize this overall loss, the optimizer is constantly coerced to decay the internal Gate Scores $(G)$ toward large negative values. As $G \\rightarrow -\\infty$, the sigmoid activation $\\sigma(G)$ approaches exactly 0, effectively severing the connection in the forward pass. This encourages sparse connectivity by pushing unnecessary gates toward zero.
 
 ---
 
@@ -28,7 +28,7 @@ Below is the summary of the model trade-offs observed over multiple magnitude ex
 
 Below is the distribution of the final gate values for the best performing model. As hypothesized for a successful model, there is **a massive spike at 0** denoting the pruned connections, and a distinct surviving cluster of values representing the core functional weights mapping the correct decisions.
 
-![Gate Histogram](gate_histogram.png)
+![Gate Histogram](![Gate Histogram](https://github.com/Dhanu1110/tredence_intern_submission/raw/main/gate_histogram.png))
 
 ## 4. Conclusion
 
